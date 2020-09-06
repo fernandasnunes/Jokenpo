@@ -1,4 +1,3 @@
-
 function judge(playerOneMove, playerTwoMove) {
   if (playerOneMove == playerTwoMove) return "Game tied! Play again!";
 
@@ -26,8 +25,6 @@ function gameResult(param, callback) {
     callback("Please enter the correct data to continue the game!");
   }
 }
-
-
 
 module.exports = {
   gameResult: gameResult,
