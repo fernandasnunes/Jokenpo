@@ -1,7 +1,7 @@
 {
   "name": "test-jokenpo-zenvia",
   "version": "1.0.0",
-  "description": "test realized for Zenvia Company using case DojoPuzzles-Jokenpo",
+  "description": "test realized using case DojoPuzzles-Jokenpo",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

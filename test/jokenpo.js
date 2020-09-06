@@ -1,9 +1,10 @@
+const jokenpo = require("../controllers/jokenpoController");
 const chai = require("chai");
-const { assert, expect } = chai;
+const expect = chai.expect;
 
 describe("Jokenpo test case ", () => {
   it('Must return "player one wins the game *--*" (rock win scissors)', () => {
-    jokenpo.getResult({ playerOne: "pedra", playerTwo: "tesoura" }, function (
+    jokenpo.gameResult({ playerOne: "rock", playerTwo: "scissors" }, function (
       err,
       data
     ) {
@@ -12,7 +13,7 @@ describe("Jokenpo test case ", () => {
   });
 
   it('Must return "player two win!" (rock loses paper)', () => {
-    jokenpo.getResult({ playerOne: "pedra", playerTwo: "papel" }, function (
+    jokenpo.gameResult({ playerOne: "rock", playerTwo: "paper" }, function (
       err,
       data
     ) {
@@ -21,7 +22,7 @@ describe("Jokenpo test case ", () => {
   });
 
   it('Must return "Game tied! Play again!" (rock equal rock)', () => {
-    jokenpo.getResult({ playerOne: "pedra", playerTwo: "pedra" }, function (
+    jokenpo.gameResult({ playerOne: "rock", playerTwo: "rock" }, function (
       err,
       data
     ) {
@@ -32,7 +33,7 @@ describe("Jokenpo test case ", () => {
 
 describe("Jokenpo test case", () => {
   it('Must return "player one win!" (scissors win paper)', () => {
-    jokenpo.getResult({ playerOne: "tesoura", playerTwo: "papel" }, function (
+    jokenpo.gameResult({ playerOne: "scissors", playerTwo: "paper" }, function (
       err,
       data
     ) {
@@ -41,7 +42,7 @@ describe("Jokenpo test case", () => {
   });
 
   it('Must return "player two win!" (scissors lose for rock)', () => {
-    jokenpo.getResult({ playerOne: "tesoura", playerTwo: "pedra" }, function (
+    jokenpo.gameResult({ playerOne: "scissors", playerTwo: "paper" }, function (
       err,
       data
     ) {
@@ -50,18 +51,18 @@ describe("Jokenpo test case", () => {
   });
 
   it("Must return Game tied! (scissors equals scissors)", () => {
-    jokenpo.getResult({ playerOne: "tesoura", playerTwo: "tesoura" }, function (
-      err,
-      data
-    ) {
-      assert.equal(data, "Game tied :( ! Play again!");
-    });
+    jokenpo.gameResult(
+      { playerOne: "scissors", playerTwo: "scissors" },
+      function (err, data) {
+        assert.equal(data, "Game tied :( ! Play again!");
+      }
+    );
   });
 });
 
 describe("Jokenpo test case", () => {
   it('Must return "player one win!" (paper win rock)', () => {
-    jokenpo.getResult({ playerOne: "papel", playerTwo: "pedra" }, function (
+    jokenpo.gameResult({ playerOne: "paper", playerTwo: "rock" }, function (
       err,
       data
     ) {
@@ -69,8 +70,8 @@ describe("Jokenpo test case", () => {
     });
   });
 
-  it('Must return "player two win!" (papel loses for tesoura)', () => {
-    jokenpo.getResult({ playerOne: "papel", playerTwo: "tesoura" }, function (
+  it('Must return "player two win!" (paper loses for scissors)', () => {
+    jokenpo.gameResult({ playerOne: "paper", playerTwo: "scissors" }, function (
       err,
       data
     ) {
@@ -78,8 +79,8 @@ describe("Jokenpo test case", () => {
     });
   });
 
-  it('Must return "Game tied! Play again!" (papel equals papel)', () => {
-    jokenpo.getResult({ playerOne: "papel", playerTwo: "papel" }, function (
+  it('Must return "Game tied! Play again!" (paper equals paper)', () => {
+    jokenpo.gameResult({ playerOne: "paper", playerTwo: "paper" }, function (
       err,
       data
     ) {
