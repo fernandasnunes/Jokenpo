@@ -1,3 +1,6 @@
+//TODO 
+// INSERT DOCKER FILE
+
 function judge(playerOneMove, playerTwoMove) {
   if (playerOneMove == playerTwoMove) return "Game tied! Play again!";
 
