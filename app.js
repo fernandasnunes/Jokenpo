@@ -10,11 +10,12 @@ app.use(express.json());
 app.use(cors());
 
 //Define the route files here
-app.use("/result", apiJokenpo);
+app.use("/getResultGame", apiJokenpo);
 
 //Starts the application server
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Server running at: http://localhost:" + port);
 });
+
 
